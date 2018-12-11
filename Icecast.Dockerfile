@@ -6,12 +6,10 @@ RUN yum install -y icecast
 
 EXPOSE 8000
 
-##RUN yum install -y less
-##RUN yum install -y nano
-##RUN yum install -y net-tools
+##RUN yum install -y less nano net-tools
 
 COPY player.htm /usr/share/icecast/web/
-COPY entrypoint.sh /
+COPY Icecast.entrypoint.sh /entrypoint.sh
 
 ## https://stackoverflow.com/a/30288835/322020
 ##RUN chmod +x /entrypoint.sh
