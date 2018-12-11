@@ -1,8 +1,7 @@
 ##FROM centos:7.2.1511
 FROM centos:7
 
-RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm
-RUN yum install -y icecast
+RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm && yum install -y icecast && yum clean -y all && yum autoremove -y
 
 EXPOSE 8000
 
