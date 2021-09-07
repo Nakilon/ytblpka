@@ -1,0 +1,33 @@
+version: "3.2"
+services:
+  icecast:
+    container_name: ytblpka_icecast
+    image: nakilonishe/ytblpka-icecast
+    networks: ["nginx"]
+    environment:
+      PASSWORD: ${SECRET_password:?}
+      HOSTNAME: ${YTBLPKA_HOSTNAME:-ytblpka.nakilon.pro}
+      TITLE: ${YTBLPKA_TITLE:-Ytpka}
+  ices:
+    depends_on: ["icecast"]
+    container_name: ytblpka_ices
+    image: nakilonishe/ytblpka-ices
+    networks: ["nginx"]
+    environment:
+      PASSWORD: ${SECRET_password:?}
+      DESCRIPTION: ${DESCRIPTION:-privchedel}
+      GENRE: ${GENRE:-Shanson}
+      NAME: ${NAME:"Ytblpka radio"}
+    volumes:
+      - type: bind
+        source: ./music
+        target: /music
+      - type: bind
+        source: ./playlist.txt
+        target: /playlist.txt
+      - type: bind
+        source: ./ices-logs
+        target: /var/log/ices
+networks:
+  nginx:
+    external: true
