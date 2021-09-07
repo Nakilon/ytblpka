@@ -17,7 +17,7 @@ services:
       PASSWORD: ${SECRET_password:?}
       DESCRIPTION: ${DESCRIPTION:-privchedel}
       GENRE: ${GENRE:-Shanson}
-      NAME: ${NAME:"Ytblpka radio"}
+      NAME: ${NAME:-"Ytblpka radio"}
     volumes:
       - type: bind
         source: ./music

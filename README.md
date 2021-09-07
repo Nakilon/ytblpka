@@ -14,7 +14,11 @@ server {
 
 Мне лень в композ, поэтому делаем `docker network create radio`.
 
-**UPD:** спустя три года по случаю переездов между серверами, [ловите композ](docker-compose.yml). Там сеть только называется не `radio`, а `nginx`, но вы разберетесь.
+**UPD:** спустя три года по случаю переездов между серверами, [ловите композ](docker-compose.yml). Там сеть только называется не `radio`, а `nginx`, но вы разберетесь. Запускать как-то так:
+
+```bash
+SECRET_password=... docker-compose up -d
+```
 
 ### [`nakilonishe/ytblpka-icecast`](https://hub.docker.com/r/nakilonishe/ytblpka-icecast/tags/) -- это "сервер", в который идут слушатели
 
